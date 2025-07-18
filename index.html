@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Personagem - Ordem Paranormal RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="character-sheet">
+        <header class="header">
+            <div class="header-left">
+                <span>PERSONAGEM: <input type="text" class="header-input"></span>
+            </div>
+            <div class="header-center">PARANORMAL RPG</div>
+            <div class="header-right">
+                <span>JOGADOR: <input type="text" class="header-input"></span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="attributes-section">
+                    <div class="attributes-hexagon">
+                        <div class="attribute attribute-center">ATRIBUTOS</div>
+                        <div class="attribute attribute-agi"><span>AGI</span><input type="number" value="0"></div>
+                        <div class="attribute attribute-for"><span>FOR</span><input type="number" value="0"></div>
+                        <div class="attribute attribute-int"><span>INT</span><input type="number" value="0"></div>
+                        <div class="attribute attribute-pre"><span>PRE</span><input type="number" value="0"></div>
+                        <div class="attribute attribute-vig"><span>VIG</span><input type="number" value="0"></div>
+                    </div>
+                </div>
+
+                <div class="origin-class-section">
+                    <div class="info-box"><span>ORIGEM</span><input type="text" class="full-width-input"></div>
+                    <div class="info-box"><span>CLASSE</span><input type="text" class="full-width-input"></div>
+                </div>
+
+                <div class="vitals">
+                    <div class="info-box">
+                        <div class="info-box-title">PONTOS DE VIDA</div>
+                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-box-title">PONTOS DE ESFORÇO</div>
+                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                    </div>
+                     <div class="info-box">
+                        <div class="info-box-title">SANIDADE</div>
+                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                    </div>
+                </div>
+
+                 <div class="defense-section">
+                    <div class="defense-value">10</div>
+                    <div class="defense-label">DEFESA</div>
+                    <div class="defense-details">
+                        <span>= 10 + AGI +</span>
+                        <div class="defense-inputs">
+                            <input type="text" placeholder="Equip.">
+                            <input type="text" placeholder="Outros">
+                        </div>
+                    </div>
+                 </div>
+
+            </div>
+
+            <div class="right-column">
+                <div class="skills-section">
+                    <h2 class="section-title">PERÍCIAS</h2>
+                    <div class="skill-header">
+                        <span class="skill-name-header">PERÍCIA</span>
+                        <span class="skill-data-header">DADOS</span>
+                        <span class="skill-data-header">BÔNUS</span>
+                        <span class="skill-data-header">TREINO</span>
+                        <span class="skill-data-header">OUTROS</span>
+                    </div>
+                    
+                    <div class="skill"><label>ACROBACIA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>ADESTRAMENTO* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>ARTES* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>ATLETISMO <span class="skill-attr">(FOR)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>ATUALIDADES <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>CIÊNCIAS* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>CRIME*+ <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>DIPLOMACIA <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>ENGANAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>FORTITUDE <span class="skill-attr">(VIG)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>FURTIVIDADE+ <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>INICIATIVA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>INTIMIDAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>INTUIÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>INVESTIGAÇÃO <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>LUTA <span class="skill-attr">(FOR)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>MEDICINA <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>OCULTISMO* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>PERCEPÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>PILOTAGEM* <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>PONTARIA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>PROFISSÃO* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>REFLEXOS <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>RELIGIÃO* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>SOBREVIVÊNCIA <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>TÁTICA* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>TECNOLOGIA* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+                    <div class="skill"><label>VONTADE <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+
+                    <div class="skill-footer">
+                        <span>+ Penalidade de carga. * Somente treinada.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
