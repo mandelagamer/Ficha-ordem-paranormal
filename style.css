@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;700&family=Roboto:wght@400;500;700&family=Girassol&display=swap');
 
 :root {
     --main-bg-color: #1a1a1a;
@@ -7,7 +7,7 @@
     --text-color: #f0f0f0;
     --input-bg-color: #1f1f1f;
     --input-border-color: #444;
-    --header-font: 'Teko', sans-serif;
+    --header-font: 'Girassol', sans-serif;
     --body-font: 'Roboto', sans-serif;
 }
 
@@ -18,8 +18,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
+    padding: 10px;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .character-sheet {
@@ -29,7 +30,7 @@ body {
     padding: 25px;
     box-shadow: 0 0 20px rgba(138, 3, 3, 0.6);
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 480px 1fr;
     gap: 25px;
 }
 
@@ -51,10 +52,22 @@ body {
     gap: 10px;
 }
 
+.header-left span,
+.header-right span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .header-center {
     font-size: 3.2em;
     color: var(--border-color);
     text-shadow: 1px 1px 2px #000;
+}
+
+/* --- Main Content (Columns) --- */
+.main-content {
+    display: contents;
 }
 
 /* --- Left Column --- */
@@ -62,6 +75,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-right: 1px solid var(--border-color);
+    padding-right: 15px;
 }
 
 .attributes-section {
@@ -72,18 +87,19 @@ body {
     margin-bottom: 30px;
 }
 
-.attributes-hexagon { /* Renamed to attributes-pentagon in thought, but keeping class name for minimal changes */
+.attributes-hexagon {
     position: relative;
-    width: 280px; /* Increased size to accommodate pentagon */
-    height: 280px; /* Increased size to accommodate pentagon */
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
 }
 
 .attribute {
     position: absolute;
-    width: 80px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     background-color: var(--main-bg-color);
-    border: 1px solid var(--border-color);
+    border: 3px solid var(--border-color); /* Borda atualizada para 3px */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,56 +108,150 @@ body {
     font-size: 1.2em;
     gap: 2px;
     z-index: 1;
-    /* Added transform-origin for rotation, though not strictly needed for static pentagon positioning */
-    transform-origin: 50% 50%;
-}
-.attribute span {
-    font-size: 0.7em;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-/* Adjusted positions for a pentagon */
+.attribute span {
+    font-size: 1em;
+    text-align: center;
+}
+
+.attribute input {
+    width: 70px;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Posição dos hexágonos */
 .attribute-center {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 60px;
-    background-color: #000;
-    font-size: 1.5em;
+    width: 130px;
+    height: 130px;
+    font-size: 1.8em;
+    padding: 15px;
     z-index: 2;
 }
 
-/* Pentagon positioning */
-.attribute-agi { /* Top point */
-    top: 0;
+.attribute-agi {
+    top: 10%;
     left: 50%;
-    transform: translateX(-50%);
 }
-.attribute-for { /* Top-left point */
-    top: 30%; /* Adjust as needed */
-    left: 0;
-    transform: translateY(-50%);
+.attribute-for {
+    top: 30%;
+    left: 10%;
 }
-.attribute-int { /* Top-right point */
-    top: 30%; /* Adjust as needed */
-    right: 0;
-    transform: translateY(-50%);
+.attribute-int {
+    top: 30%;
+    left: 90%;
 }
-.attribute-pre { /* Bottom-left point */
-    bottom: 0;
-    left: 15%; /* Adjust as needed */
-    transform: translateX(-50%);
+.attribute-pre {
+    top: 70%;
+    left: 10%;
 }
-.attribute-vig { /* Bottom-right point */
-    bottom: 0;
-    right: 15%; /* Adjust as needed */
-    transform: translateX(50%);
+.attribute-vig {
+    top: 70%;
+    left: 90%;
+}
+
+/* Defense Section Styles (Now in Left Column) */
+.defense-section {
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0 auto;
+    position: relative;
+}
+.defense-value {
+    font-size: 2.2em;
+    font-weight: bold;
+    font-family: var(--header-font);
+}
+.defense-label {
+    font-family: var(--header-font);
+    font-size: 1.3em;
+    margin-top: -8px;
+}
+.defense-details {
+    position: absolute;
+    bottom: -55px;
+    text-align: center;
+    font-size: 0.8em;
+    width: 150px;
+}
+.defense-details div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 3px;
+}
+.defense-inputs input {
+    width: 50px;
+    font-size: 0.8em;
+}
+
+/* Initiative Section Styles (Now in Left Column) */
+.initiative-section {
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 55px auto 0 auto;
+    position: relative;
+}
+
+.initiative-value {
+    font-size: 2.2em;
+    font-weight: bold;
+    font-family: var(--header-font);
+}
+
+.initiative-label {
+    font-family: var(--header-font);
+    font-size: 1.3em;
+    margin-top: -8px;
+}
+
+.initiative-details {
+    position: absolute;
+    bottom: -55px;
+    text-align: center;
+    font-size: 0.8em;
+    width: 150px;
+}
+
+.initiative-details div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.initiative-inputs input {
+    width: 50px;
+    font-size: 0.8em;
 }
 
 
 .origin-class-section, .vitals {
     display: grid;
     gap: 10px;
+    margin-top: 65px;
     margin-bottom: 15px;
 }
 
@@ -186,60 +296,12 @@ body {
     font-size: 1em;
 }
 
-.defense-section {
-    border: 2px solid var(--text-color);
-    border-radius: 50%;
-    width: 110px;
-    height: 110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px auto 0;
-    position: relative;
-    margin-top: 30px;
-}
-.defense-value {
-    font-size: 2.2em;
-    font-weight: bold;
-    font-family: var(--header-font);
-}
-.defense-label {
-    font-family: var(--header-font);
-    font-size: 1.3em;
-    margin-top: -8px;
-}
-.defense-details {
-    position: absolute;
-    bottom: -55px;
-    text-align: center;
-    font-size: 0.8em;
-    width: 150px;
-}
-.defense-details div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-    margin-top: 3px;
-}
-.defense-inputs input {
-    width: 50px;
-    font-size: 0.8em;
-}
 
-
-/* --- Right Column (Skills) --- */
-.right-column {
-    padding-left: 15px;
-    border-left: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-}
-
+/* --- Skills Section Styles (Now in Left Column) --- */
 .skills-section {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .section-title {
@@ -254,12 +316,12 @@ body {
 
 .skill-header {
     display: grid;
-    grid-template-columns: 180px repeat(4, 1fr);
-    gap: 5px;
+    grid-template-columns: 160px 1fr 1fr 1fr 4fr; /* CORRIGIDO: Largura da coluna TREINO */
+    gap: 5px; /* Mantido como 5px */
     font-weight: bold;
     font-family: var(--header-font);
     font-size: 1em;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     padding-right: 5px;
     text-align: center;
 }
@@ -272,10 +334,10 @@ body {
 
 .skill {
     display: grid;
-    grid-template-columns: 180px repeat(4, 1fr);
-    gap: 5px;
+    grid-template-columns: 160px 1fr 1fr 1fr 4fr; /* CORRIGIDO: Largura da coluna TREINO */
+    gap: 5px; /* Mantido como 5px */
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-size: 0.85em;
     padding-right: 5px;
 }
@@ -322,14 +384,121 @@ input:focus, select:focus {
 .header-input {
     width: 180px;
     font-size: 1em;
+    margin-top: -3px; /* Ajuste visual para alinhamento */
 }
 .full-width-input {
     width: calc(100% - 10px);
     margin-left: 0;
 }
 
-.attribute input {
-    width: 50px;
-    font-size: 0.9em;
+/* Esconde as setinhas de inputs tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]::-ms-clear,
+input[type="number"]::-ms-reveal {
+    display: none;
+}
+
+/* Estilo específico para o dropdown de treino de perícia */
+.skill select.skill-training-level {
+    width: 100%;
+    padding: 4px;
+    font-size: 0.8em;
+}
+
+/* Right Column (Notes) */
+.right-column {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Notes Section Styles */
+.notes-section {
+    background-color: var(--container-bg-color);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notes-section:first-child {
+    margin-top: 0;
+}
+
+.notes-section .section-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 5px;
+    width: 100%;
     text-align: center;
+}
+
+.note-block {
+    width: 95%;
+    max-width: 600px;
+    height: 150px;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    color: var(--text-color);
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: var(--body-font);
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 0 auto;
+    display: block;
+}
+
+.note-block::placeholder {
+    color: #888;
+}
+
+.note-block:focus {
+    outline: none;
+    border-color: var(--border-color);
+    box-shadow: 0 0 5px rgba(138, 3, 3, 0.7);
+}
+
+.sheet-actions {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.sheet-actions button {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px 20px;
+    font-family: var(--header-font);
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sheet-actions button:hover {
+    background-color: #a00606;
+    transform: translateY(-2px);
+}
+
+.sheet-actions button:active {
+    transform: translateY(0);
+    background-color: #6a0202;
 }
