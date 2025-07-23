@@ -11,11 +11,11 @@
     <div class="character-sheet">
         <header class="header">
             <div class="header-left">
-                <span>PERSONAGEM: <input type="text" class="header-input"></span>
+                <span>PERSONAGEM: <input type="text" class="header-input" id="characterName"></span>
             </div>
             <div class="header-center">PARANORMAL RPG</div>
             <div class="header-right">
-                <span>JOGADOR: <input type="text" class="header-input"></span>
+                <span>JOGADOR: <input type="text" class="header-input" id="playerName"></span>
             </div>
         </header>
 
@@ -24,49 +24,58 @@
                 <div class="attributes-section">
                     <div class="attributes-hexagon">
                         <div class="attribute attribute-center">ATRIBUTOS</div>
-                        <div class="attribute attribute-agi"><span>AGI</span><input type="number" value="0"></div>
-                        <div class="attribute attribute-for"><span>FOR</span><input type="number" value="0"></div>
-                        <div class="attribute attribute-int"><span>INT</span><input type="number" value="0"></div>
-                        <div class="attribute attribute-pre"><span>PRE</span><input type="number" value="0"></div>
-                        <div class="attribute attribute-vig"><span>VIG</span><input type="number" value="0"></div>
+                        <div class="attribute attribute-agi"><span>AGI</span><input type="number" id="attrAgi" value="0"></div>
+                        <div class="attribute attribute-for"><span>FOR</span><input type="number" id="attrFor" value="0"></div>
+                        <div class="attribute attribute-int"><span>INT</span><input type="number" id="attrInt" value="0"></div>
+                        <div class="attribute attribute-pre"><span>PRE</span><input type="number" id="attrPre" value="0"></div>
+                        <div class="attribute attribute-vig"><span>VIG</span><input type="number" id="attrVig" value="0"></div>
+                    </div>
+                </div>
+
+                <div class="defense-section">
+                    <div class="defense-value" id="defenseDisplayValue">10</div>
+                    <div class="defense-label">DEFESA</div>
+                    <div class="defense-details">
+                        <span>= 10 + AGI +</span>
+                        <div class="defense-inputs">
+                            <input type="number" placeholder="Equip." id="defenseEquip" value="0">
+                            <input type="number" placeholder="Outros" id="defenseOther" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="initiative-section">
+                    <div class="initiative-value" id="initiativeDisplayValue">0</div>
+                    <div class="initiative-label">INICIATIVA</div>
+                    <div class="initiative-details">
+                        <span>= AGI +</span>
+                        <div class="initiative-inputs">
+                            <input type="number" placeholder="Bônus" id="initiativeBonus" value="0">
+                            <input type="number" placeholder="Outros" id="initiativeOther" value="0">
+                        </div>
                     </div>
                 </div>
 
                 <div class="origin-class-section">
-                    <div class="info-box"><span>ORIGEM</span><input type="text" class="full-width-input"></div>
-                    <div class="info-box"><span>CLASSE</span><input type="text" class="full-width-input"></div>
+                    <div class="info-box"><span>ORIGEM</span><input type="text" class="full-width-input" id="origin"></div>
+                    <div class="info-box"><span>CLASSE</span><input type="text" class="full-width-input" id="class"></div>
                 </div>
 
                 <div class="vitals">
                     <div class="info-box">
                         <div class="info-box-title">PONTOS DE VIDA</div>
-                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                        <div class="dual-input"><input type="number" id="hpCurrent"><span>/</span><input type="number" id="hpMax"></div>
                     </div>
                     <div class="info-box">
                         <div class="info-box-title">PONTOS DE ESFORÇO</div>
-                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                        <div class="dual-input"><input type="number" id="peCurrent"><span>/</span><input type="number" id="peMax"></div>
                     </div>
                      <div class="info-box">
                         <div class="info-box-title">SANIDADE</div>
-                        <div class="dual-input"><input type="number"><span>/</span><input type="number"></div>
+                        <div class="dual-input"><input type="number" id="sanCurrent"><span>/</span><input type="number" id="sanMax"></div>
                     </div>
                 </div>
 
-                 <div class="defense-section">
-                    <div class="defense-value">10</div>
-                    <div class="defense-label">DEFESA</div>
-                    <div class="defense-details">
-                        <span>= 10 + AGI +</span>
-                        <div class="defense-inputs">
-                            <input type="text" placeholder="Equip.">
-                            <input type="text" placeholder="Outros">
-                        </div>
-                    </div>
-                 </div>
-
-            </div>
-
-            <div class="right-column">
                 <div class="skills-section">
                     <h2 class="section-title">PERÍCIAS</h2>
                     <div class="skill-header">
@@ -76,43 +85,366 @@
                         <span class="skill-data-header">TREINO</span>
                         <span class="skill-data-header">OUTROS</span>
                     </div>
-                    
-                    <div class="skill"><label>ACROBACIA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>ADESTRAMENTO* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>ARTES* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>ATLETISMO <span class="skill-attr">(FOR)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>ATUALIDADES <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>CIÊNCIAS* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>CRIME*+ <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>DIPLOMACIA <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>ENGANAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>FORTITUDE <span class="skill-attr">(VIG)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>FURTIVIDADE+ <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>INICIATIVA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>INTIMIDAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>INTUIÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>INVESTIGAÇÃO <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>LUTA <span class="skill-attr">(FOR)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>MEDICINA <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>OCULTISMO* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>PERCEPÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>PILOTAGEM* <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>PONTARIA <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>PROFISSÃO* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>REFLEXOS <span class="skill-attr">(AGI)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>RELIGIÃO* <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>SOBREVIVÊNCIA <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>TÁTICA* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>TECNOLOGIA* <span class="skill-attr">(INT)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
-                    <div class="skill"><label>VONTADE <span class="skill-attr">(PRE)</span></label><input type="text" value="+0" readonly><input type="number" value="0"><input type="number" value="0"><input type="text"></div>
+
+                    <div class="skill"><label>ACROBACIA <span class="skill-attr">(AGI)</span></label><input type="text" id="acrobaciaDados" value="+0" readonly><input type="number" id="acrobaciaBonus" value="0" readonly><select class="skill-training-level" id="acrobaciaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="acrobaciaOutros" value="0"></div>
+                    <div class="skill"><label>ADESTRAMENTO* <span class="skill-attr">(PRE)</span></label><input type="text" id="adestramentoDados" value="+0" readonly><input type="number" id="adestramentoBonus" value="0" readonly><select class="skill-training-level" id="adestramentoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="adestramentoOutros" value="0"></div>
+                    <div class="skill"><label>ARTES* <span class="skill-attr">(PRE)</span></label><input type="text" id="artesDados" value="+0" readonly><input type="number" id="artesBonus" value="0" readonly><select class="skill-training-level" id="artesTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="artesOutros" value="0"></div>
+                    <div class="skill"><label>ATLETISMO <span class="skill-attr">(FOR)</span></label><input type="text" id="atletismoDados" value="+0" readonly><input type="number" id="atletismoBonus" value="0" readonly><select class="skill-training-level" id="atletismoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="atletismoOutros" value="0"></div>
+                    <div class="skill"><label>ATUALIDADES <span class="skill-attr">(INT)</span></label><input type="text" id="atualidadesDados" value="+0" readonly><input type="number" id="atualidadesBonus" value="0" readonly><select class="skill-training-level" id="atualidadesTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="atualidadesOutros" value="0"></div>
+                    <div class="skill"><label>CIÊNCIAS* <span class="skill-attr">(INT)</span></label><input type="text" id="cienciasDados" value="+0" readonly><input type="number" id="cienciasBonus" value="0" readonly><select class="skill-training-level" id="cienciasTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="cienciasOutros" value="0"></div>
+                    <div class="skill"><label>CRIME*+ <span class="skill-attr">(AGI)</span></label><input type="text" id="crimeDados" value="+0" readonly><input type="number" id="crimeBonus" value="0" readonly><select class="skill-training-level" id="crimeTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="crimeOutros" value="0"></div>
+                    <div class="skill"><label>DIPLOMACIA <span class="skill-attr">(PRE)</span></label><input type="text" id="diplomaciaDados" value="+0" readonly><input type="number" id="diplomaciaBonus" value="0" readonly><select class="skill-training-level" id="diplomaciaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="diplomaciaOutros" value="0"></div>
+                    <div class="skill"><label>ENGANAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" id="enganacaoDados" value="+0" readonly><input type="number" id="enganacaoBonus" value="0" readonly><select class="skill-training-level" id="enganacaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="enganacaoOutros" value="0"></div>
+                    <div class="skill"><label>FORTITUDE <span class="skill-attr">(VIG)</span></label><input type="text" id="fortitudeDados" value="+0" readonly><input type="number" id="fortitudeBonus" value="0" readonly><select class="skill-training-level" id="fortitudeTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="fortitudeOutros" value="0"></div>
+                    <div class="skill"><label>FURTIVIDADE+ <span class="skill-attr">(AGI)</span></label><input type="text" id="furtividadeDados" value="+0" readonly><input type="number" id="furtividadeBonus" value="0" readonly><select class="skill-training-level" id="furtividadeTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="furtividadeOutros" value="0"></div>
+                    <div class="skill"><label>INICIATIVA <span class="skill-attr">(AGI)</span></label><input type="text" id="iniciativaDados" value="+0" readonly><input type="number" id="iniciativaBonus" value="0" readonly><select class="skill-training-level" id="iniciativaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="iniciativaOutros" value="0"></div>
+                    <div class="skill"><label>INTIMIDAÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" id="intimidacaoDados" value="+0" readonly><input type="number" id="intimidacaoBonus" value="0" readonly><select class="skill-training-level" id="intimidacaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="intimidacaoOutros" value="0"></div>
+                    <div class="skill"><label>INTUIÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" id="intuicaoDados" value="+0" readonly><input type="number" id="intuicaoBonus" value="0" readonly><select class="skill-training-level" id="intuicaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="intuicaoOutros" value="0"></div>
+                    <div class="skill"><label>INVESTIGAÇÃO <span class="skill-attr">(INT)</span></label><input type="text" id="investigacaoDados" value="+0" readonly><input type="number" id="investigacaoBonus" value="0" readonly><select class="skill-training-level" id="investigacaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="investigacaoOutros" value="0"></div>
+                    <div class="skill"><label>LUTA <span class="skill-attr">(FOR)</span></label><input type="text" id="lutaDados" value="+0" readonly><input type="number" id="lutaBonus" value="0" readonly><select class="skill-training-level" id="lutaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="lutaOutros" value="0"></div>
+                    <div class="skill"><label>MEDICINA <span class="skill-attr">(INT)</span></label><input type="text" id="medicinaDados" value="+0" readonly><input type="number" id="medicinaBonus" value="0" readonly><select class="skill-training-level" id="medicinaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="medicinaOutros" value="0"></div>
+                    <div class="skill"><label>OCULTISMO* <span class="skill-attr">(INT)</span></label><input type="text" id="ocultismoDados" value="+0" readonly><input type="number" id="ocultismoBonus" value="0" readonly><select class="skill-training-level" id="ocultismoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="ocultismoOutros" value="0"></div>
+                    <div class="skill"><label>PERCEPÇÃO <span class="skill-attr">(PRE)</span></label><input type="text" id="percepcaoDados" value="+0" readonly><input type="number" id="percepcaoBonus" value="0" readonly><select class="skill-training-level" id="percepcaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="percepcaoOutros" value="0"></div>
+                    <div class="skill"><label>PILOTAGEM* <span class="skill-attr">(AGI)</span></label><input type="text" id="pilotagemDados" value="+0" readonly><input type="number" id="pilotagemBonus" value="0" readonly><select class="skill-training-level" id="pilotagemTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="pilotagemOutros" value="0"></div>
+                    <div class="skill"><label>PONTARIA <span class="skill-attr">(AGI)</span></label><input type="text" id="pontariaDados" value="+0" readonly><input type="number" id="pontariaBonus" value="0" readonly><select class="skill-training-level" id="pontariaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="pontariaOutros" value="0"></div>
+                    <div class="skill"><label>PROFISSÃO* <span class="skill-attr">(INT)</span></label><input type="text" id="profissaoDados" value="+0" readonly><input type="number" id="profissaoBonus" value="0" readonly><select class="skill-training-level" id="profissaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="profissaoOutros" value="0"></div>
+                    <div class="skill"><label>REFLEXOS <span class="skill-attr">(AGI)</span></label><input type="text" id="reflexosDados" value="+0" readonly><input type="number" id="reflexosBonus" value="0" readonly><select class="skill-training-level" id="reflexosTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="reflexosOutros" value="0"></div>
+                    <div class="skill"><label>RELIGIÃO* <span class="skill-attr">(PRE)</span></label><input type="text" id="religiaoDados" value="+0" readonly><input type="number" id="religiaoBonus" value="0" readonly><select class="skill-training-level" id="religiaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="religiaoOutros" value="0"></div>
+                    <div class="skill"><label>SOBREVIVÊNCIA <span class="skill-attr">(INT)</span></label><input type="text" id="sobrevivenciaDados" value="+0" readonly><input type="number" id="sobrevivenciaBonus" value="0" readonly><select class="skill-training-level" id="sobrevivenciaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="sobrevivenciaOutros" value="0"></div>
+                    <div class="skill"><label>TÁTICA* <span class="skill-attr">(INT)</span></label><input type="text" id="taticaDados" value="+0" readonly><input type="number" id="taticaBonus" value="0" readonly><select class="skill-training-level" id="taticaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="taticaOutros" value="0"></div>
+                    <div class="skill"><label>TECNOLOGIA* <span class="skill-attr">(INT)</span></label><input type="text" id="tecnologiaDados" value="+0" readonly><input type="number" id="tecnologiaBonus" value="0" readonly><select class="skill-training-level" id="tecnologiaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="tecnologiaOutros" value="0"></div>
+                    <div class="skill"><label>VONTADE <span class="skill-attr">(PRE)</span></label><input type="text" id="vontadeDados" value="+0" readonly><input type="number" id="vontadeBonus" value="0" readonly><select class="skill-training-level" id="vontadeTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="vontadeOutros" value="0"></div>
 
                     <div class="skill-footer">
                         <span>+ Penalidade de carga. * Somente treinada.</span>
                     </div>
                 </div>
             </div>
+
+            <div class="right-column">
+                <div class="notes-section">
+                    <h2 class="section-title">SOBRE O PERSONAGEM</h2>
+                    <textarea class="note-block" id="notaPersonagem" placeholder="Anote detalhes sobre a história, personalidade ou aparência do seu personagem..."></textarea>
+                </div>
+
+                <div class="notes-section">
+                    <h2 class="section-title">HABILIDADES DE ORIGEM</h2>
+                    <textarea class="note-block" id="notaHabilidadesOrigem" placeholder="Descreva as habilidades ou características especiais que vêm da origem do seu personagem..."></textarea>
+                </div>
+
+                <div class="notes-section">
+                    <h2 class="section-title">HABILIDADES DO SOBREVIVENTE</h2>
+                    <textarea class="note-block" id="notaHabilidadesSobrevivente" placeholder="Anote quaisquer habilidades ou talentos que o personagem adquiriu para sobreviver..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button id="exportSheet">Exportar Ficha</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+            <button id="importSheet">Importar Ficha</button>
         </div>
     </div>
+
+    <script>
+        // Função para calcular e atualizar a perícia
+        function updateSkill(skillName, attributeId) {
+            const attributeValue = parseInt(document.getElementById(attributeId).value) || 0;
+            // Verifica se os elementos de treino e outros existem antes de tentar acessá-los
+            const treinoElement = document.getElementById(skillName + "Treino");
+            const outrosElement = document.getElementById(skillName + "Outros");
+
+            const treinoValue = treinoElement ? parseInt(treinoElement.value) || 0 : 0;
+            const outrosValue = outrosElement ? parseInt(outrosElement.value) || 0 : 0;
+
+            const dadosElement = document.getElementById(skillName + "Dados");
+            const bonusElement = document.getElementById(skillName + "Bonus");
+
+            if (dadosElement) {
+                dadosElement.value = (attributeValue >= 0 ? "+" : "") + attributeValue;
+            }
+            if (bonusElement) {
+                const totalBonus = treinoValue + outrosValue;
+                bonusElement.value = totalBonus;
+            }
+        }
+
+        // Função para calcular e atualizar Defense
+        function updateDefense() {
+            const agiValue = parseInt(document.getElementById('attrAgi').value) || 0;
+            const equipValue = parseInt(document.getElementById('defenseEquip').value) || 0;
+            const otherValue = parseInt(document.getElementById('defenseOther').value) || 0;
+
+            const totalDefense = 10 + agiValue + equipValue + otherValue;
+            document.getElementById('defenseDisplayValue').textContent = totalDefense;
+        }
+
+        // Função para calcular e atualizar Initiative
+        function updateInitiative() {
+            const agiValue = parseInt(document.getElementById('attrAgi').value) || 0;
+            const bonusValue = parseInt(document.getElementById('initiativeBonus').value) || 0;
+            const otherValue = parseInt(document.getElementById('initiativeOther').value) || 0;
+
+            const totalInitiative = agiValue + bonusValue + otherValue;
+            document.getElementById('initiativeDisplayValue').textContent = totalInitiative;
+        }
+
+        // Mapeamento das perícias para seus atributos e IDs
+        const skillsMap = [
+            { name: "acrobacia", attrId: "attrAgi" },
+            { name: "adestramento", attrId: "attrPre" },
+            { name: "artes", attrId: "attrPre" },
+            { name: "atletismo", attrId: "attrFor" },
+            { name: "atualidades", attrId: "attrInt" },
+            { name: "ciencias", attrId: "attrInt" },
+            { name: "crime", attrId: "attrAgi" },
+            { name: "diplomacia", attrId: "attrPre" },
+            { name: "enganacao", attrId: "attrPre" },
+            { name: "fortitude", attrId: "attrVig" },
+            { name: "furtividade", attrId: "attrAgi" },
+            { name: "iniciativa", attrId: "attrAgi" },
+            { name: "intimidacao", attrId: "attrPre" },
+            { name: "intuicao", attrId: "attrPre" },
+            { name: "investigacao", attrId: "attrInt" },
+            { name: "luta", attrId: "attrFor" },
+            { name: "medicina", attrId: "attrInt" },
+            { name: "ocultismo", attrId: "attrInt" },
+            { name: "percepcao", attrId: "attrPre" },
+            { name: "pilotagem", attrId: "attrAgi" },
+            { name: "pontaria", attrId: "attrAgi" },
+            { name: "profissao", attrId: "attrInt" },
+            { name: "reflexos", attrId: "attrAgi" },
+            { name: "religiao", attrId: "attrPre" },
+            { name: "sobrevivencia", attrId: "attrInt" },
+            { name: "tatica", attrId: "attrInt" },
+            { name: "tecnologia", attrId: "attrInt" },
+            { name: "vontade", attrId: "attrPre" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Event listeners para inputs de atributos
+            const attributeInputs = document.querySelectorAll('.attribute input[type="number"]');
+            attributeInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    skillsMap.forEach(skill => {
+                        // Recalcula todas as perícias que dependem deste atributo
+                        if (skill.attrId === input.id) {
+                            updateSkill(skill.name, skill.attrId);
+                        }
+                    });
+                    updateDefense(); // Also update defense when AGI changes
+                    updateInitiative(); // Also update initiative when AGI changes
+                });
+            });
+
+            // Event listeners para dropdowns de treino e inputs de outros de cada perícia
+            skillsMap.forEach(skill => {
+                const treinoSelect = document.getElementById(skill.name + "Treino");
+                const outrosInput = document.getElementById(skill.name + "Outros");
+
+                if (treinoSelect) {
+                    treinoSelect.addEventListener('change', () => {
+                        updateSkill(skill.name, skill.attrId);
+                    });
+                }
+
+                if (outrosInput) {
+                    outrosInput.addEventListener('input', () => {
+                        updateSkill(skill.name, skill.attrId);
+                    });
+                }
+
+                // Inicializa os valores na carga da página
+                updateSkill(skill.name, skill.attrId);
+            });
+
+            // Event listeners for Defense inputs
+            document.getElementById('defenseEquip').addEventListener('input', updateDefense);
+            document.getElementById('defenseOther').addEventListener('input', updateDefense);
+
+            // Event listeners for Initiative inputs
+            document.getElementById('initiativeBonus').addEventListener('input', updateInitiative);
+            document.getElementById('initiativeOther').addEventListener('input', updateInitiative);
+
+            // Initial calculation for Defense and Initiative on page load
+            updateDefense();
+            updateInitiative();
+
+            // --- Funções de Exportar/Importar ---
+
+            // Função para coletar todos os dados da ficha
+            function collectSheetData() {
+                const data = {};
+
+                // Informações do Cabeçalho
+                data.characterName = document.getElementById('characterName').value;
+                data.playerName = document.getElementById('playerName').value;
+                data.origin = document.getElementById('origin').value;
+                data.class = document.getElementById('class').value;
+
+                // Atributos
+                data.attributes = {
+                    agi: document.getElementById('attrAgi').value,
+                    for: document.getElementById('attrFor').value,
+                    int: document.getElementById('attrInt').value,
+                    pre: document.getElementById('attrPre').value,
+                    vig: document.getElementById('attrVig').value
+                };
+
+                // Pontos de Vida, Esforço e Sanidade
+                data.vitals = {
+                    hpCurrent: document.getElementById('hpCurrent').value,
+                    hpMax: document.getElementById('hpMax').value,
+                    peCurrent: document.getElementById('peCurrent').value,
+                    peMax: document.getElementById('peMax').value,
+                    sanCurrent: document.getElementById('sanCurrent').value,
+                    sanMax: document.getElementById('sanMax').value
+                };
+
+                // Defesa
+                data.defense = {
+                    equip: document.getElementById('defenseEquip').value,
+                    other: document.getElementById('defenseOther').value
+                };
+
+                // Perícias
+                data.skills = {};
+                skillsMap.forEach(skill => {
+                    data.skills[skill.name] = {
+                        treino: document.getElementById(skill.name + "Treino").value,
+                        outros: document.getElementById(skill.name + "Outros").value
+                    };
+                });
+
+                // Initiative
+                data.initiative = {
+                    bonus: document.getElementById('initiativeBonus').value,
+                    other: document.getElementById('initiativeOther').value
+                };
+
+
+                // Blocos de Nota
+                data.notes = {
+                    character: document.getElementById('notaPersonagem').value,
+                    originAbilities: document.getElementById('notaHabilidadesOrigem').value,
+                    survivorAbilities: document.getElementById('notaHabilidadesSobrevivente').value
+                };
+
+                return data;
+            }
+
+            // Função para aplicar os dados à ficha
+            function applySheetData(data) {
+                // Informações do Cabeçalho
+                document.getElementById('characterName').value = data.characterName || '';
+                document.getElementById('playerName').value = data.playerName || '';
+                document.getElementById('origin').value = data.origin || '';
+                document.getElementById('class').value = data.class || '';
+
+                // Atributos
+                if (data.attributes) {
+                    document.getElementById('attrAgi').value = data.attributes.agi || 0;
+                    document.getElementById('attrFor').value = data.attributes.for || 0;
+                    document.getElementById('attrInt').value = data.attributes.int || 0;
+                    document.getElementById('attrPre').value = data.attributes.pre || 0;
+                    document.getElementById('attrVig').value = data.attributes.vig || 0;
+                }
+
+                // Pontos de Vida, Esforço e Sanidade
+                if (data.vitals) {
+                    document.getElementById('hpCurrent').value = data.vitals.hpCurrent || 0;
+                    document.getElementById('hpMax').value = data.vitals.hpMax || 0;
+                    document.getElementById('peCurrent').value = data.vitals.peCurrent || 0;
+                    document.getElementById('peMax').value = data.vitals.peMax || 0;
+                    document.getElementById('sanCurrent').value = data.vitals.sanCurrent || 0;
+                    document.getElementById('sanMax').value = data.vitals.sanMax || 0;
+                }
+
+                // Defesa
+                if (data.defense) {
+                    document.getElementById('defenseEquip').value = data.defense.equip || '';
+                    document.getElementById('defenseOther').value = data.defense.other || '';
+                }
+
+                // Perícias
+                if (data.skills) {
+                    skillsMap.forEach(skill => {
+                        if (data.skills[skill.name]) {
+                            const treinoSelect = document.getElementById(skill.name + "Treino");
+                            const outrosInput = document.getElementById(skill.name + "Outros");
+
+                            if (treinoSelect) {
+                                treinoSelect.value = data.skills[skill.name].treino || 0;
+                            }
+                            if (outrosInput) {
+                                outrosInput.value = data.skills[skill.name].outros || 0;
+                            }
+                        }
+                    });
+                }
+
+                // Initiative
+                if (data.initiative) {
+                    document.getElementById('initiativeBonus').value = data.initiative.bonus || 0;
+                    document.getElementById('initiativeOther').value = data.initiative.other || 0;
+                }
+
+                // Blocos de Nota
+                if (data.notes) {
+                    document.getElementById('notaPersonagem').value = data.notes.character || '';
+                    document.getElementById('notaHabilidadesOrigem').value = data.notes.originAbilities || '';
+                    document.getElementById('notaHabilidadesSobrevivente').value = data.notes.survivorAbilities || '';
+                }
+
+                // Após carregar os dados, recalcular todas as perícias, defesa e iniciativa para atualizar "DADOS" e "BÔNUS"
+                skillsMap.forEach(skill => {
+                    updateSkill(skill.name, skill.attrId);
+                });
+                updateDefense();
+                updateInitiative();
+            }
+
+            // Event Listener para o botão de Exportar
+            document.getElementById('exportSheet').addEventListener('click', () => {
+                const sheetData = collectSheetData();
+                const jsonData = JSON.stringify(sheetData, null, 2); // Formata com indentação para legibilidade
+                const blob = new Blob([jsonData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                // Usa o nome do personagem para o arquivo, se disponível
+                const characterName = document.getElementById('characterName').value;
+                a.download = characterName ? `ficha_${characterName.replace(/[^a-zA-Z0-9_]/g, '_')}.json` : 'ficha_ordem_paranormal.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            // Event Listener para o botão de Importar (esconde o input file e o ativa no clique do botão)
+            document.getElementById('importSheet').addEventListener('click', () => {
+                document.getElementById('importFile').click();
+            });
+
+            document.getElementById('importFile').addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const loadedData = JSON.parse(e.target.result);
+                            applySheetData(loadedData);
+                            alert('Ficha importada com sucesso!');
+                        } catch (error) {
+                            alert('Erro ao importar a ficha: Arquivo JSON inválido ou corrompido.');
+                            console.error('Erro ao parsear JSON:', error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
