@@ -67,7 +67,7 @@ body {
 
 /* --- Main Content (Columns) --- */
 .main-content {
-    display: contents;
+    display: contents; /* Isso permite que os filhos diretos sejam posicionados pelo grid do pai (character-sheet) */
 }
 
 /* --- Left Column --- */
@@ -99,7 +99,7 @@ body {
     width: 100px;
     height: 100px;
     background-color: var(--main-bg-color);
-    border: 3px solid var(--border-color); /* Borda atualizada para 3px */
+    border: 3px solid var(--border-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -417,14 +417,14 @@ input[type="number"]::-ms-reveal {
     padding-left: 15px;
     display: flex;
     flex-direction: column;
+    gap: 20px; /* Adicionado para espaçamento entre as seções de notas */
 }
 
-/* Notes Section Styles */
 .notes-section {
     background-color: var(--container-bg-color);
     border: 1px solid var(--border-color);
     padding: 15px;
-    margin-top: 25px;
+    margin-top: 25px; /* Mantido para espaçamento inicial ou entre seções se não houver gap */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -444,16 +444,17 @@ input[type="number"]::-ms-reveal {
     text-align: center;
 }
 
+/* Estilos para a caixa de texto em si (textarea) */
 .note-block {
     width: 95%;
     max-width: 600px;
-    height: 150px;
+    height: 150px; /* Altura padrão da caixa de texto */
     background-color: var(--input-bg-color);
     border: 1px solid var(--input-border-color);
     color: var(--text-color);
     padding: 10px;
     box-sizing: border-box;
-    resize: vertical;
+    resize: vertical; /* Permite redimensionar verticalmente */
     font-family: var(--body-font);
     font-size: 0.9em;
     line-height: 1.5;
