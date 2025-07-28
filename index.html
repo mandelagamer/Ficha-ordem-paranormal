@@ -111,7 +111,7 @@
                     <div class="skill"><label>REFLEXOS <span class="skill-attr">(AGI)</span></label><input type="text" id="reflexosDados" value="+0" readonly><input type="number" id="reflexosBonus" value="0" readonly><select class="skill-training-level" id="reflexosTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="reflexosOutros" value="0"></div>
                     <div class="skill"><label>RELIGIÃO* <span class="skill-attr">(PRE)</span></label><input type="text" id="religiaoDados" value="+0" readonly><input type="number" id="religiaoBonus" value="0" readonly><select class="skill-training-level" id="religiaoTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="religiaoOutros" value="0"></div>
                     <div class="skill"><label>SOBREVIVÊNCIA <span class="skill-attr">(INT)</span></label><input type="text" id="sobrevivenciaDados" value="+0" readonly><input type="number" id="sobrevivenciaBonus" value="0" readonly><select class="skill-training-level" id="sobrevivenciaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="sobrevivenciaOutros" value="0"></div>
-                    <div class="skill"><label>TÁTICA* <span class="skill-attr">(INT)</span></label><input type="text" id="taticaDados" value="+0" readonly><input type="number" id="taticaBonus" value="0" readonly><select class="skill-training-level" id="taticaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="taticaOutros" value="0"></div>
+                    <div class="skill"><label>TÁTICA* <span class="skill-attr">(INT)</span></label><input type="text" id="taticaDados" value="+0" readonly><input type="number" id="taticaBonus" value="0" readonly><select class="skill-training-level" id="taticaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></option></select><input type="number" id="taticaOutros" value="0"></div>
                     <div class="skill"><label>TECNOLOGIA* <span class="skill-attr">(INT)</span></label><input type="text" id="tecnologiaDados" value="+0" readonly><input type="number" id="tecnologiaBonus" value="0" readonly><select class="skill-training-level" id="tecnologiaTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="tecnologiaOutros" value="0"></div>
                     <div class="skill"><label>VONTADE <span class="skill-attr">(PRE)</span></label><input type="text" id="vontadeDados" value="+0" readonly><input type="number" id="vontadeBonus" value="0" readonly><select class="skill-training-level" id="vontadeTreino"><option value="0">Sem Treinamento</option><option value="5">Treinado</option><option value="10">Veterano</option><option value="15">Expert</option></select><input type="number" id="vontadeOutros" value="0"></div>
 
@@ -119,27 +119,32 @@
                         <span>+ Penalidade de carga. * Somente treinada.</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="right-column">
+            </div> <div class="right-column">
                 <div class="notes-section">
-                    <h2 class="section-title">SOBRE O PERSONAGEM</h2>
+                    <div class="section-title">ANOTAÇÕES</div>
+                    <textarea class="note-block" id="notesTextarea" placeholder="Suas anotações gerais aqui..."></textarea>
+                </div>
+
+                <div class="notes-section">
+                    <div class="section-title">EQUIPAMENTOS</div>
+                    <textarea class="note-block" id="equipamentosNotes" placeholder="Descreva seus equipamentos aqui..."></textarea>
+                </div>
+
+                <div class="notes-section">
+                    <div class="section-title">SOBRE O PERSONAGEM</div>
                     <textarea class="note-block" id="notaPersonagem" placeholder="Anote detalhes sobre a história, personalidade ou aparência do seu personagem..."></textarea>
                 </div>
 
                 <div class="notes-section">
-                    <h2 class="section-title">HABILIDADES DE ORIGEM</h2>
+                    <div class="section-title">HABILIDADES DE ORIGEM</div>
                     <textarea class="note-block" id="notaHabilidadesOrigem" placeholder="Descreva as habilidades ou características especiais que vêm da origem do seu personagem..."></textarea>
                 </div>
 
                 <div class="notes-section">
-                    <h2 class="section-title">HABILIDADES DO SOBREVIVENTE</h2>
+                    <div class="section-title">HABILIDADES DO SOBREVIVENTE</div>
                     <textarea class="note-block" id="notaHabilidadesSobrevivente" placeholder="Anote quaisquer habilidades ou talentos que o personagem adquiriu para sobreviver..."></textarea>
                 </div>
-            </div>
-        </div>
-
-        <div class="sheet-actions">
+            </div> </div> <div class="sheet-actions">
             <button id="exportSheet">Exportar Ficha</button>
             <input type="file" id="importFile" accept=".json" style="display: none;">
             <button id="importSheet">Importar Ficha</button>
@@ -323,8 +328,10 @@
                 };
 
 
-                // Blocos de Nota
+                // Blocos de Nota (Anotações, Equipamentos, Sobre Personagem, Habilidades Origem, Habilidades Sobrevivente)
                 data.notes = {
+                    general: document.getElementById('notesTextarea').value,
+                    equipamentos: document.getElementById('equipamentosNotes').value,
                     character: document.getElementById('notaPersonagem').value,
                     originAbilities: document.getElementById('notaHabilidadesOrigem').value,
                     survivorAbilities: document.getElementById('notaHabilidadesSobrevivente').value
@@ -391,6 +398,8 @@
 
                 // Blocos de Nota
                 if (data.notes) {
+                    document.getElementById('notesTextarea').value = data.notes.general || '';
+                    document.getElementById('equipamentosNotes').value = data.notes.equipamentos || '';
                     document.getElementById('notaPersonagem').value = data.notes.character || '';
                     document.getElementById('notaHabilidadesOrigem').value = data.notes.originAbilities || '';
                     document.getElementById('notaHabilidadesSobrevivente').value = data.notes.survivorAbilities || '';
